@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('modal');
     const certificateContent = document.getElementById('certificateContent');
     const closeModal = document.querySelector('.close');
+    
+    //Button to download pdf of certificate
+    const downloadButton = document.createElement('button');
   
     // Hide the modal initially
     modal.style.display = 'none';
@@ -30,12 +33,20 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>This is to certify that</p>
         <h3>${studentName}</h3>
         <p>has almost completed the</p>
-        <h4>${courseName}</h4>
+        <h4>${courseName} Course</h4>
         <p>with legendary perseverance and world-class bad-assery for never giving up \uD83C\uDFC6</p>
         <img src="logo.png" alt="codespace logo"/>
         <p>${personalMessage}</p>
-    `;
+      `;
     
+      downloadButton.textContent = "Download Certificate";
+      downloadButton.addEventListener('click', () =>{
+
+        html2pdf().from(certificateContent).save(`${studentName}_Certificate.pdf`);
+        
+      })
+      modal.appendChild(downloadButton);
+
       //  Display the modal
       modal.style.display = 'block';
   
@@ -49,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //  🚨 Close the modal when the close button is clicked
     closeModal.addEventListener('click', function () {
       modal.style.display = "none";
+      modal.removeChild(downloadButton);
     });
   });
   
