@@ -3,10 +3,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('modal');
     const certificateContent = document.getElementById('certificateContent');
     const closeModal = document.querySelector('.close');
+    let studentName;
     
     //Button to download pdf of certificate
     const downloadButton = document.createElement('button');
-  
+    downloadButton.classList.add('download-button');
+    downloadButton.textContent = "Download Certificate";
+    modal.appendChild(downloadButton);
+
+    downloadButton.addEventListener('click', () =>{
+      let opt = {
+        margin: 0.5,
+        filename: `${studentName}_Certificate.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: [10, 8], orientation: 'landscape' }
+      };
+      html2pdf().from(certificateContent).set(opt).save();
+    });
+    
     // Hide the modal initially
     modal.style.display = 'none';
   
@@ -18,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const personalMessageInput = document.getElementById('personalMessage');
       const courseNameInput = document.getElementById('courseName'); 
   
-      const studentName = studentNameInput.value;
+      studentName = studentNameInput.value;
       const personalMessage = personalMessageInput.value;
       const courseName = courseNameInput ? courseNameInput.value : "a course"; // Fallback to "a course" if no input
   
@@ -38,14 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <img src="logo.png" alt="codespace logo"/>
         <p>${personalMessage}</p>
       `;
-    
-      downloadButton.textContent = "Download Certificate";
-      downloadButton.addEventListener('click', () =>{
-
-        html2pdf().from(certificateContent).save(`${studentName}_Certificate.pdf`);
-        
-      })
-      modal.appendChild(downloadButton);
 
       //  Display the modal
       modal.style.display = 'block';
@@ -56,11 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if(courseNameInput) courseNameInput.value = '';
     });
 
-  
     //  🚨 Close the modal when the close button is clicked
     closeModal.addEventListener('click', function () {
       modal.style.display = "none";
-      modal.removeChild(downloadButton);
     });
   });
   
