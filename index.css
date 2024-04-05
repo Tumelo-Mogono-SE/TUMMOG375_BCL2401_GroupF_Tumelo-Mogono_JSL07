@@ -96,6 +96,7 @@ h1, .modal-content h2, .modal-content p {
 
 .close {
   color: #dc7f5f;
+  cursor: pointer;
 }
 
 /* Adding a fancy border to the certificate content */
@@ -116,4 +117,9 @@ button:hover {
 img {
   max-width: 60%;
   margin-top: 10px;
+}
+
+.download-button {
+  cursor: pointer;
+  margin: 10px;
 }
