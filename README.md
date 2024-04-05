@@ -1,42 +1,18 @@
 # [JSL07] Submission: Proud of your Progress
+# Project overview
+In this project I had to create a personalized certificate of achievement with the "Proud of Your Progress Certificate Generator". This web application requires users to input their name, a personalized message, and the course name to dynamically generate a certificate displayed in a modal.
 
-Create a personalized certificate of achievement with the "Proud of Your Progress Certificate Generator". This web application requires users to input their name, a personalized message, and the course name to dynamically generate a certificate displayed in a modal.
+# Project Process
+* For the project after accessing the starter code from the github repository, I adjusted the code by first adding the reference to the elements for the input for the personal message and the course name. I then added the html elements and content required inside them to display the information and input values for the student name, personal message and course name when the certificate is generated. All of this is added inside the string literals. I then added onto the function to add an event listener to the close modal variable which has assigned to it the span element which has a cross which will be used to close the certificate, for that part of the code , I first added the addEventlistener function and added the click parameter, inside the callback function I added the code logic which targets the style property of display which has it set to none to hide the modal div element which contains the certificate inside it, this will allow upon clicking the close span element the modal div element to hide.
+* I then added an extra feature to have a button which will allow the download of the certificate as a pdf. This is achieved by creating an element which is a button and adding a class to which will be used to add styling in the css file, the button has the content to it set to "downloadButton" and then appended inside the modal div element. I then have an event listener for the download button which when clicked it will have an object which sets the settings for when the html content is converted to a pdf file, which also sets the name of the file to the student name input and certificate string. The is a function which converts the HTML to PDF and using the from function which has the parameter which selects where to fetch the HTML information and the  set function which gets the settings of the pdf convertion from the object variable and the save function to save the document.
 
-## Steps for Submission
-1. **Clone Starter Code:** Begin by cloning the Starter Code Repository from [GitHub](https://github.com/CodeSpace-Academy/Module_7_StudentNo_Classcode_Group_Name-Surname_JSL07).
-2. **Develop Your Solution:** Write your code to implement the project's functionality.
-3. **Commit Your Changes:** As you make progress, commit your changes with meaningful messages.
-4. **Push to GitHub:** Upload your local repository changes to GitHub.
-5. **Submit Your Work:** Share your GitHub Repository Link on the LMS under the [JSL07] Submission Project Tab.
+# Challenges
+For this challenge the first problem I faced was the adjustment of the logo image size to make sure that it matched the examples provided. The second problem I faced was when I had to add the feature for adding the button which downloads the certificate as a pdf file, the issue was that when a user generated the pdf and closed it and converted another certificate without refreshing the webpage it would download multiple files and when I first tried to solve it, it would then generate multiple buttons. To solve the solution I had to the  make sure the function for the eventlistener should be outside the cardform callback function and also have to move the studentName variable outside the cardform callback function to make it a global variable and also declare it using let instead of const because you can not declare a const variable without initializing it, this helped to ensure that I can still get the studentName input value outside the cardform callback function when downloading the pdf and also prevent multiplication of downloading and button creation.
 
-## Project Features
-- **Input Fields:** For user's name, personalized message, and course name.
-- **Generate Certificate:** A button that when clicked, creates the certificate.
-- **Modal Display:** The certificate is shown in a modal window.
-- **Close Button:** For closing the modal.
-- **Validation:** Checks that all fields are completed before certificate generation.
+# Feedback
+From the main objectives of the project, this was straight forward and not too challenging. The additional feature I decided to add made were more fun and challenging and more specifically the debugging of the issues I had stumbled on, I also noticed the were more feature's I could have added if I had adequate time before submission, feature's such as restricting how the user should add their name and surname for student name input by preventing number's inside the input or by only allowing the user to input a name that start's with an upper case alphabet followed by lower case alphabet's by utilising regular expression.
 
-## Development Objectives
-- **Dynamic Content:** Dynamically generate the certificate's content based on user input, ensuring it matches the reference solution.
-- **Modal Implementation:** Show the certificate in a modal upon form submission; the modal should initially be hidden.
-- **Interaction Handling:** Enable modal display with form submission and allow closing with a close button. Ensure form inputs are cleared post-submission.
 
-## Addressing Starter Code Challenges 🪲
-Your tasks include completing partially implemented input collection, dynamically generating certificate content, and implementing modal display and interaction handling based on the provided starter code framework.
 
-Partial implementation for collecting input values, where specific assignments are marked with 🚨, indicating tasks to complete.
 
-## How to Proceed
-1. **Clone the Repository:** Use the provided [link](https://github.com/CodeSpace-Academy/Module_7_StudentNo_Classcode_Group_Name-Surname_JSL07) to clone the repository and start working in your local environment.
-2. **Code:** Address each challenge following the project objectives and features.
-3. **Commit Changes:** Regularly commit your work with descriptive messages.
-4. **Push Updates:** Upload your commits to GitHub, ensuring your repository reflects the latest changes.
-5. **Verify Submission:** Double-check your GitHub repository for the final code and push any last-minute updates.
-
-## Evaluation Criteria
-- **Code Review:** We'll check your repository for the complete and updated code files.
-- **Functionality:** Your modifications will be assessed for adherence to project requirements.
-- **Commit History:** Your commit messages and history will reflect your development process.
-
-Get going and celebrate your progress 🥳🥳🥳
 
