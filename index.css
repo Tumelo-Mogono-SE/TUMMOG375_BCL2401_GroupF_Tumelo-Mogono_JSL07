@@ -114,11 +114,6 @@ button:hover {
   background-color: #5d5f5e;
 }
 
-img {
-  max-width: 60%;
-  margin-top: 10px;
-}
-
 .download-button {
   cursor: pointer;
   margin: 10px;
