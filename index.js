@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>has almost completed the</p>
         <h4>${courseName} Course</h4>
         <p>with legendary perseverance and world-class bad-assery for never giving up \uD83C\uDFC6</p>
-        <img src="logo.png" alt="codespace logo"/>
+        <img src="logo.png" alt="codespace logo" style="max-width: 60%; margin-top: 10px;"/>
         <p>${personalMessage}</p>
       `;
 
